@@ -16,11 +16,11 @@ function Header() {
             <div className={cx('header-top')}>
                 <div className='container'>
                     <div className={cx('header-top-inner')}>
-                        <Link to={config.routes.products + '/all'} className={cx('header-top-item')}>
+                        <Link to='/all' className={cx('header-top-item')}>
                             <img src={images.location} />
                             <span>98 Cửa hàng khắp cả nước</span>
                         </Link>
-                        <Link to={config.routes.products + '/all'} className={cx('header-top-item')}>
+                        <Link to='/all' className={cx('header-top-item')}>
                             <img src={images.phone} />
                             <span>Đặt hàng: 1800.6936</span>
                         </Link>
