@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import classNames from 'classnames/bind'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 
 import styles from './Header.module.scss'
 import { MoreIcon } from '../Icons'
