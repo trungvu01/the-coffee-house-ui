@@ -1,16 +1,44 @@
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState, useRef } from 'react'
 
 import images from '../../assets/images'
 import styles from './Header.module.scss'
 import config from '../../config'
 import services from '../../services'
-import { MoreIcon } from '../Icons'
-import PopperMenu from './PopperMenu'
+import Menu from './Menu'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const cx = classNames.bind(styles)
 
 function Header() {
+    const [showMenu, setShowMenu] = useState(false)
+    const [menuChange, setMenuChange] = useState(false)
+    const navRef = useRef<HTMLElement>(null)
+
+    setInterval(() => {
+        if (window.innerWidth < 991.98) {
+            setMenuChange(true)
+        } else {
+            setMenuChange(false)
+        }
+    }, 100)
+
+    const handleShowMenu = () => {
+        if (navRef.current) {
+            navRef.current.classList.add(cx('show'))
+            setShowMenu(true)
+        }
+    }
+
+    const handleHideMenu = () => {
+        if (navRef.current) {
+            navRef.current.classList.remove(cx('show'))
+            setShowMenu(false)
+        }
+    }
+
     return (
         <header className={cx('header')}>
             <div className={cx('header-top')}>
@@ -31,54 +59,18 @@ function Header() {
                 <div className='container'>
                     <div className={cx('header-bottom-inner')}>
                         {/* logo */}
+                        {menuChange &&
+                            (showMenu ? (
+                                <FontAwesomeIcon icon={faXmark} className={cx('bar-icon')} onClick={handleHideMenu} />
+                            ) : (
+                                <FontAwesomeIcon icon={faBars} className={cx('bar-icon')} onClick={handleShowMenu} />
+                            ))}
                         <Link to={config.routes.home}>
                             <img src={images.logo} alt='The Coffee House' className={cx('logo')} />
                         </Link>
-                        <nav className={cx('navigation')}>
-                            <ul className={cx('menu')}>
-                                {services.menuService.map((item, index) => {
-                                    return !item.children ? (
-                                        <li key={index}>
-                                            <Link className={cx('menu-item')} to={item.path}>
-                                                {item.title}
-                                                {item.children && <MoreIcon className={cx('more-icon')} />}
-                                            </Link>
-                                        </li>
-                                    ) : (
-                                        <li key={index}>
-                                            <Link className={cx('menu-item', 'has-child')} to={item.path}>
-                                                {item.title}
-                                                {item.children && <MoreIcon className={cx('more-icon')} />}
-                                            </Link>
-
-                                            <div className={cx('menu-wrapper-lv2')}>
-                                                <PopperMenu
-                                                    layout={`repeat(${item.children.length}, 1fr)`}
-                                                    className='lv2'
-                                                    data={item}
-                                                />
-                                                <div
-                                                    className={cx('menu-wrapper-lv3')}
-                                                    style={{
-                                                        gridTemplateColumns: `repeat(${item.children.length}, 1fr)`
-                                                    }}
-                                                >
-                                                    {item.children &&
-                                                        item.children.map((subItem, index) => {
-                                                            return (
-                                                                <PopperMenu
-                                                                    key={index}
-                                                                    className='lv3'
-                                                                    data={subItem}
-                                                                />
-                                                            )
-                                                        })}
-                                                </div>
-                                            </div>
-                                        </li>
-                                    )
-                                })}
-                            </ul>
+                        {menuChange && showMenu && <div className={cx('overlay')} onClick={handleHideMenu}></div>}
+                        <nav ref={navRef} className={cx('navigation')}>
+                            <Menu onHideMenu={handleHideMenu} data={services.menuService} />
                         </nav>
                     </div>
                 </div>

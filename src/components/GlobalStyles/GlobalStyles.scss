@@ -144,6 +144,8 @@ html {
 }
 
 body {
+    overflow: overlay;
+    scrollbar-gutter: stable overlay;
     font-size: 1.6rem;
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 400;
@@ -153,4 +155,20 @@ body {
 a {
     text-decoration: none;
     display: inline-block;
+}
+
+img {
+    display: inline-flex;
+}
+
+// custom scrollbar
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #d4cdcd;
+    border-radius: 999px;
+    transition: all 0.3s linear;
 }

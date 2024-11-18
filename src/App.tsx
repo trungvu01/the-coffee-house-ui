@@ -9,7 +9,7 @@ function App() {
                 v7_relativeSplatPath: true
             }}
         >
-            <div className='app' style={{ height: 1200 }}>
+            <div className='app' style={{ height: 2000, backgroundColor: '#ccc' }}>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Layout = route.layout
