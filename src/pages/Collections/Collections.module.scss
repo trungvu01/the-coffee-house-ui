@@ -1,0 +1,19 @@
+.collections-page {
+    padding: 40px 0 50px;
+}
+
+.product-list-type {
+    &:first-child {
+        margin-top: 8px;
+    }
+
+    &:not(:first-child) {
+        margin-top: 40px;
+    }
+}
+
+.title-type {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-top: 0;
+}

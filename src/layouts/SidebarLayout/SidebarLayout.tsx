@@ -1,10 +1,5 @@
 import React from 'react'
-import classNames from 'classnames/bind'
 import { Header, Sidebar, Footer } from '../../components'
-
-import styles from './SidebarLayout.module.scss'
-
-const cx = classNames.bind(styles)
 
 type childrenType = {
     children: React.ReactNode
@@ -14,9 +9,15 @@ function SidebarLayout({ children }: childrenType) {
     return (
         <>
             <Header />
-            <main className={cx('body')}>
-                <Sidebar />
-                <div className={cx('content')}>{children}</div>
+            <main>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-3 d-none d-lg-inline-block'>
+                            <Sidebar />
+                        </div>
+                        <div className='col-12 col-lg-9'>{children}</div>
+                    </div>
+                </div>
             </main>
             <Footer />
         </>

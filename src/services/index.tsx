@@ -1,7 +1,9 @@
 import menuService from './menuService'
+import productsService from './productsService'
 
 const services = {
-    menuService
+    menuService,
+    productsService
 }
 
 export default services

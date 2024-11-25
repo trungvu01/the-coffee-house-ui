@@ -1,8 +1,8 @@
 const routes = {
     home: '/',
-    products: '/:products',
-    collections: '/:name',
-    pages: '/:pages',
+    collections: '/collections/:type',
+    products: '/products/:productName',
+    pages: '/pages/:name',
     blogs: '/pages/chuyen-ca-phe-va-tra'
 }
 

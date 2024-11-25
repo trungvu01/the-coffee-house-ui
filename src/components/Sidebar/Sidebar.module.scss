@@ -1,0 +1,88 @@
+.sidebar {
+    position: sticky;
+    top: 100px;
+    margin: 40px 0 50px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 2px;
+        border-radius: 999px;
+        background-color: #00000026;
+    }
+}
+
+.has-child {
+    &:focus-within .sidebar-item {
+        font-size: 1.6rem;
+        color: #ea8025;
+        font-weight: 500;
+    }
+}
+
+.sidebar-item {
+    position: relative;
+    width: 100%;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 8px 26px;
+    transition: all 0.2s linear;
+
+    &.active {
+        font-size: 1.6rem;
+        color: #ea8025;
+        font-weight: 500;
+
+        &::before {
+            content: url('../../assets/images/dot-cafe.svg');
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.sidebar-child {
+    display: none;
+    margin: 8px 0 8px 50px;
+    animation: showMenuFromBottom 0.3s ease-in-out;
+
+    &.show {
+        display: block;
+    }
+
+    li {
+        list-style-type: disc;
+
+        &:focus-within {
+            color: #ea8025;
+        }
+    }
+}
+
+@keyframes showMenuFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.sidebar-child-item {
+    color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.4rem;
+
+    &.active {
+        color: #ea8025;
+    }
+}

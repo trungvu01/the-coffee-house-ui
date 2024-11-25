@@ -1,67 +1,67 @@
 import config from '../config'
 
 const menuService = [
-    { title: 'Cà phê', path: '/ca-phe-tai-nha' },
-    { title: 'Trà', path: '/tra-tai-nha' },
+    { title: 'Cà phê', path: '/collections/ca-phe-tai-nha' },
+    { title: 'Trà', path: '/collections/tra-tai-nha' },
     {
         title: 'Menu',
-        path: '/all',
+        path: '/collections/all',
         children: [
-            { title: 'Tất Cả', path: '/all' },
+            { title: 'Tất Cả', path: '/collections/all' },
             {
                 title: 'Cà Phê',
-                path: '/ca-phe',
+                path: '/collections/ca-phe',
                 children: [
-                    { title: 'Cà Phê Highlight', path: '/ca-phe-highlight-2' },
-                    { title: 'Cà Phê Việt Nam', path: '/ca-phe-viet-nam' },
-                    { title: 'Cà Phê Máy', path: '/ca-phe-may' },
-                    { title: 'Cold Brew', path: '/cold-brew' }
+                    { title: 'Cà Phê Highlight', path: '/collections/ca-phe-highlight-2' },
+                    { title: 'Cà Phê Việt Nam', path: '/collections/ca-phe-viet-nam' },
+                    { title: 'Cà Phê Máy', path: '/collections/ca-phe-may' },
+                    { title: 'Cold Brew', path: '/collections/cold-brew' }
                 ]
             },
             {
                 title: 'Trái Cây Xay 0°C',
-                path: '/trai-cay-xay-0-c',
-                children: [{ title: 'Trái Cây Xay 0°C', path: '/trai-cay-xay-0-c' }]
+                path: '/collections/trai-cay-xay-0-c',
+                children: [{ title: 'Trái Cây Xay 0°C', path: '/collections/trai-cay-xay-0-c' }]
             },
             {
                 title: 'Trà Trái Cây - HiTea',
-                path: '/hi-tea-healthy',
+                path: '/collections/hi-tea-healthy',
                 children: [
-                    { title: 'Trà Trái Cây', path: '/tra-trai-cay' },
-                    { title: 'Hi-Tea', path: '/hi-tea-tra' }
+                    { title: 'Trà Trái Cây', path: '/collections/tra-trai-cay' },
+                    { title: 'Hi-Tea', path: '/collections/hi-tea-tra' }
                 ]
             },
             {
                 title: 'Trà Sữa',
-                path: '/tra-sua-macchiato',
-                children: [{ title: 'Trà Sữa', path: '/tra-sua' }]
+                path: '/collections/tra-sua-macchiato',
+                children: [{ title: 'Trà Sữa', path: '/collections/tra-sua' }]
             },
             {
                 title: 'Trà Xanh - Chocolate',
-                path: '/tra-xanh-tay-bac',
+                path: '/collections/tra-xanh-tay-bac',
                 children: [
-                    { title: 'Trà Xanh Tây Bắc', path: '/tra-xanh-tay-bac' },
-                    { title: 'Chocolate', path: '/thuc-uong-khac' }
+                    { title: 'Trà Xanh Tây Bắc', path: '/collections/tra-xanh-tay-bac' },
+                    { title: 'Chocolate', path: '/collections/thuc-uong-khac' }
                 ]
             },
             {
                 title: 'Thức uống đá xay',
-                path: '/da-xay-frosty-1',
-                children: [{ title: 'Đá xay Frosty', path: '/da-xay-frosty-1' }]
+                path: '/collections/da-xay-frosty-1',
+                children: [{ title: 'Đá xay Frosty', path: '/collections/da-xay-frosty-1' }]
             },
             {
                 title: 'Bánh & Snack',
-                path: '/banh',
+                path: '/collections/banh',
                 children: [
-                    { title: 'Bánh mặn', path: '/banh-man' },
-                    { title: 'Bánh ngọt', path: '/banh-ngot' },
-                    { title: 'Bánh Pastry', path: '/banh-pastry' }
+                    { title: 'Bánh mặn', path: '/collections/banh-man' },
+                    { title: 'Bánh ngọt', path: '/collections/banh-ngot' },
+                    { title: 'Bánh Pastry', path: '/collections/banh-pastry' }
                 ]
             },
             {
                 title: 'Thưởng Thức Tại Nhà',
-                path: '/thuong-thuc-tai-nha',
-                children: [{ title: 'Cà phê tại nhà', path: '/ca-phe-tai-nha' }]
+                path: '/collections/thuong-thuc-tai-nha',
+                children: [{ title: 'Cà phê tại nhà', path: '/collections/ca-phe-tai-nha' }]
             }
         ]
     },

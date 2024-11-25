@@ -1,0 +1,38 @@
+// arrows
+.slick-arrow {
+    color: #ea8025;
+    z-index: 1;
+
+    &::before {
+        opacity: 0.8;
+        color: #890000;
+    }
+
+    &.slick-prev {
+        left: 5%;
+    }
+
+    &.slick-next {
+        right: 5%;
+    }
+}
+
+// dots
+.slick-dots {
+    bottom: 16px;
+
+    li {
+        margin: 0;
+    }
+
+    li button:before {
+        content: '';
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 2px;
+        border-radius: 999px;
+        background-color: #890000;
+    }
+}
