@@ -7,7 +7,7 @@ import banner3 from './banner3.webp'
 import banner4 from './banner4.webp'
 import banner5 from './banner5.webp'
 
-import banner1_1 from './banner1-1.webp'
+import banner1_1 from './banner1-1.jpg'
 import banner2_1 from './banner2-1.webp'
 import banner3_1 from './banner3-1.webp'
 import banner4_1 from './banner4-1.webp'
