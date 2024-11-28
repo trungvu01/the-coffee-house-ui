@@ -77,7 +77,7 @@ function Home() {
                                 tạo ra Trà Xanh vị mộc dễ uống, dễ yêu, không thể trộn lẫn với bất kỳ vùng miền nào
                                 khác.
                             </p>
-                            <Button primary className={cx('cloudtee-btn')}>
+                            <Button to='/collections/tra-xanh-tay-bac' primary className={cx('cloudtee-btn')}>
                                 Thử ngay
                             </Button>
                         </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import classNames from 'classnames/bind'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 
 import styles from './Header.module.scss'
 import { MoreIcon } from '../Icons'
@@ -19,25 +19,43 @@ type propType = {
 }
 
 const Menu = ({ data, onHideMenu }: propType) => {
-    const subMenu = document.querySelectorAll('.' + cx('has-child'))
-    subMenu.forEach((li) => {
-        const child = li.querySelector('& > ul')
-        if (child) {
-            li.addEventListener('mouseover', () => {
-                child.classList.add(cx('show'))
+    const menuRef = useRef<HTMLUListElement>(null)
+
+    useEffect(() => {
+        const menuEle = menuRef.current
+
+        if (!menuEle) return
+
+        const subMenus = menuEle.querySelectorAll('.' + cx('has-child'))
+        subMenus.forEach((li) => {
+            const child = li.querySelector('ul')
+            if (child) {
+                li.addEventListener('mouseover', () => {
+                    child.classList.add(cx('show'))
+                })
+            }
+        })
+
+        const links = menuEle.querySelectorAll('a')
+        links.forEach((link) => {
+            link.addEventListener('click', onHideMenu)
+        })
+
+        return () => {
+            subMenus.forEach((li) => {
+                const child = li.querySelector('ul')
+                if (child) {
+                    li.removeEventListener('mouseover', () => {
+                        child.classList.add(cx('show'))
+                    })
+                }
+            })
+
+            links.forEach((link) => {
+                link.removeEventListener('click', onHideMenu)
             })
         }
-    })
-
-    const menuRef = useRef<HTMLUListElement>(null)
-    if (menuRef.current) {
-        const linkList = menuRef.current.querySelectorAll('a')
-        linkList.forEach((link) => {
-            link.addEventListener('click', () => {
-                onHideMenu()
-            })
-        })
-    }
+    }, [onHideMenu])
 
     return (
         <ul ref={menuRef} className={cx('menu-lv1')}>

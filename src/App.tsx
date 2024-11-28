@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from './routes'
 
+import { ScrollToTop } from './components'
+
 function App() {
     return (
         <BrowserRouter
@@ -9,6 +11,7 @@ function App() {
                 v7_relativeSplatPath: true
             }}
         >
+            <ScrollToTop />
             <div className='app'>
                 <Routes>
                     {publicRoutes.map((route, index) => {

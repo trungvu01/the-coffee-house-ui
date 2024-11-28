@@ -2,6 +2,7 @@
     position: sticky;
     top: 100px;
     margin: 40px 0 50px;
+    transition: all 0.3s linear;
 
     &::after {
         content: '';
@@ -36,6 +37,10 @@
         font-size: 1.6rem;
         color: #ea8025;
         font-weight: 500;
+
+        + .sidebar-child {
+            display: block !important;
+        }
 
         &::before {
             content: url('../../assets/images/dot-cafe.svg');

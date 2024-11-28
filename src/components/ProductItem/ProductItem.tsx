@@ -5,17 +5,22 @@ import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
+type optionType = {
+    name: string
+    moreFee: number
+}
+
 type productType = {
     product: {
         cate: string
         type: string
         title: string
         price: number
-        img: string
+        imgs: string[]
         thumb: string
         path: string
-        size: string[]
-        topping: string[]
+        size?: optionType[]
+        topping?: optionType[]
         desc: string
         inHome?: boolean
     }

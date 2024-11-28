@@ -9,7 +9,7 @@ const cx = classNames.bind(styles)
 type buttonPropType = {
     href?: string
     to?: string
-    children: React.ReactElement | string
+    children: React.ReactElement | string | React.ReactNode
     onClick?: React.FC
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     className?: string | number | symbol | any

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import images from '../../assets/images'
 import styles from './Header.module.scss'
@@ -12,18 +12,34 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const cx = classNames.bind(styles)
 
+// follow size window
+const useWindowSize = () => {
+    const [isTablet, setIsTablet] = useState(window.innerWidth < 991.98)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsTablet(window.innerWidth < 991.98)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
+
+    return isTablet
+}
+
 function Header() {
+    const isTablet = useWindowSize()
     const [showMenu, setShowMenu] = useState(false)
     const [menuChange, setMenuChange] = useState(false)
     const navRef = useRef<HTMLElement>(null)
 
-    setInterval(() => {
-        if (window.innerWidth < 991.98) {
-            setMenuChange(true)
-        } else {
-            setMenuChange(false)
-        }
-    }, 100)
+    useEffect(() => {
+        setMenuChange(isTablet)
+    }, [isTablet])
 
     const handleShowMenu = () => {
         if (navRef.current) {
@@ -44,11 +60,11 @@ function Header() {
             <div className={cx('header-top')}>
                 <div className='container'>
                     <div className={cx('header-top-inner')}>
-                        <Link to='/all' className={cx('header-top-item')}>
+                        <Link to='/collections/all' className={cx('header-top-item')}>
                             <img src={images.location} />
                             <span>98 Cửa hàng khắp cả nước</span>
                         </Link>
-                        <Link to='/all' className={cx('header-top-item')}>
+                        <Link to='/collections/all' className={cx('header-top-item')}>
                             <img src={images.phone} />
                             <span>Đặt hàng: 1800.6936</span>
                         </Link>

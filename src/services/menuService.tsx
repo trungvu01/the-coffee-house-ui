@@ -1,8 +1,8 @@
 import config from '../config'
 
 const menuService = [
-    { title: 'Cà phê', path: '/collections/ca-phe-tai-nha' },
-    { title: 'Trà', path: '/collections/tra-tai-nha' },
+    { title: 'Cà phê', path: '/collections/thuong-thuc-tai-nha' },
+    { title: 'Trà', path: '/collections/hi-tea-healthy' },
     {
         title: 'Menu',
         path: '/collections/all',

@@ -18,7 +18,7 @@ type propType = {
 function SliderImage({ data, classNameItem, className }: propType) {
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: data.default.length > 1,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -27,20 +27,22 @@ function SliderImage({ data, classNameItem, className }: propType) {
     }
 
     return (
-        <Slider className={className} {...settings}>
-            {data.default.map((img, index) => {
-                return (
-                    <div key={index}>
-                        <picture>
-                            {data.replacement && (
-                                <source media='(max-width: 767.98px)' srcSet={data.replacement[index]} />
-                            )}
-                            <img className={classNameItem} src={img} style={{ cursor: 'pointer' }} />
-                        </picture>
-                    </div>
-                )
-            })}
-        </Slider>
+        <>
+            <Slider className={className} {...settings}>
+                {data.default.map((img, index) => {
+                    return (
+                        <div key={index}>
+                            <picture>
+                                {data.replacement && (
+                                    <source media='(max-width: 767.98px)' srcSet={data.replacement[index]} />
+                                )}
+                                <img className={classNameItem} src={img} style={{ cursor: 'pointer' }} />
+                            </picture>
+                        </div>
+                    )
+                })}
+            </Slider>
+        </>
     )
 }
 

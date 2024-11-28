@@ -38,6 +38,93 @@ import ig_icon from './instagram-icon.svg'
 import dot_cafe from './dot-cafe.svg'
 
 import prod_1 from './prod_1.webp'
+import prod_2 from './prod_2.jpg'
+import prod_3 from './prod_3.webp'
+import prod_4 from './prod_4.webp'
+import prod_5 from './prod_5.webp'
+import prod_6 from './prod_6.webp'
+import prod_7 from './prod_7.webp'
+import prod_8 from './prod_8.webp'
+import prod_9_1 from './prod_9_1.webp'
+import prod_9_2 from './prod_9_2.webp'
+import prod_9_3 from './prod_9_3.webp'
+import prod_10 from './prod_10.webp'
+import prod_11_1 from './prod_11_1.webp'
+import prod_11_2 from './prod_11_2.webp'
+import prod_11_3 from './prod_11_3.webp'
+import prod_12 from './prod_12.webp'
+import prod_13 from './prod_13.webp'
+import prod_14 from './prod_14.webp'
+import prod_15 from './prod_15.webp'
+import prod_16 from './prod_16.webp'
+import prod_17 from './prod_17.webp'
+import prod_18 from './prod_18.jpg'
+import prod_19 from './prod_19.webp'
+import prod_20 from './prod_20.jpg'
+import prod_21 from './prod_21.webp'
+import prod_22 from './prod_22.webp'
+import prod_23_1 from './prod_23_1.png'
+import prod_23_2 from './prod_23_2.webp'
+import prod_23_3 from './prod_23_3.webp'
+import prod_24_1 from './prod_24_1.webp'
+import prod_24_2 from './prod_24_2.webp'
+import prod_24_3 from './prod_24_3.webp'
+import prod_24_4 from './prod_24_4.webp'
+import prod_25 from './prod_25.webp'
+import prod_26 from './prod_26.webp'
+import prod_27_1 from './prod_27_1.webp'
+import prod_27_2 from './prod_27_2.webp'
+import prod_27_3 from './prod_27_3.webp'
+import prod_28_1 from './prod_28_1.webp'
+import prod_28_2 from './prod_28_2.webp'
+import prod_28_3 from './prod_28_3.webp'
+import prod_29 from './prod_29.webp'
+import prod_30 from './prod_30.jpg'
+import prod_31 from './prod_31.webp'
+import prod_32 from './prod_32.webp'
+import prod_33 from './prod_33.webp'
+import prod_34 from './prod_34.webp'
+import prod_35 from './prod_35.webp'
+import prod_36 from './prod_36.jpg'
+import prod_37 from './prod_37.webp'
+import prod_38 from './prod_38.webp'
+import prod_39 from './prod_39.webp'
+import prod_40 from './prod_40.webp'
+import prod_41 from './prod_41.webp'
+import prod_42 from './prod_42.jpg'
+import prod_43 from './prod_43.webp'
+import prod_44_1 from './prod_44_1.webp'
+import prod_44_2 from './prod_44_2.webp'
+import prod_45 from './prod_45.webp'
+import prod_46 from './prod_46.webp'
+import prod_47 from './prod_47.webp'
+import prod_48_1 from './prod_48_1.webp'
+import prod_48_2 from './prod_48_2.webp'
+import prod_48_3 from './prod_48_3.webp'
+import prod_49_1 from './prod_49_1.webp'
+import prod_49_2 from './prod_49_2.webp'
+import prod_49_3 from './prod_49_3.webp'
+import prod_50_1 from './prod_50_1.webp'
+import prod_50_2 from './prod_50_2.webp'
+import prod_51 from './prod_51.webp'
+import prod_52_1 from './prod_52_1.webp'
+import prod_52_2 from './prod_52_2.webp'
+import prod_53_1 from './prod_53_1.webp'
+import prod_53_2 from './prod_53_2.webp'
+import prod_54 from './prod_54.webp'
+import prod_55 from './prod_55.webp'
+import prod_56 from './prod_56.webp'
+import prod_57 from './prod_57.webp'
+import prod_58_1 from './prod_58_1.webp'
+import prod_58_2 from './prod_58_2.webp'
+import prod_59 from './prod_59.webp'
+import prod_60_1 from './prod_60_1.webp'
+import prod_60_2 from './prod_60_2.jpg'
+import prod_60_3 from './prod_60_3.webp'
+import prod_61_1 from './prod_61_1.webp'
+import prod_61_2 from './prod_61_2.webp'
+import prod_61_3 from './prod_61_3.webp'
+
 import prod_1_thumb from './prod_1_thumb.webp'
 import prod_2_thumb from './prod_2_thumb.webp'
 import prod_3_thumb from './prod_3_thumb.webp'
@@ -138,6 +225,93 @@ const images = {
     dot_cafe,
 
     prod_1,
+    prod_2,
+    prod_3,
+    prod_4,
+    prod_5,
+    prod_6,
+    prod_7,
+    prod_8,
+    prod_9_1,
+    prod_9_2,
+    prod_9_3,
+    prod_10,
+    prod_11_1,
+    prod_11_2,
+    prod_11_3,
+    prod_12,
+    prod_13,
+    prod_14,
+    prod_15,
+    prod_16,
+    prod_17,
+    prod_18,
+    prod_19,
+    prod_20,
+    prod_21,
+    prod_22,
+    prod_23_1,
+    prod_23_2,
+    prod_23_3,
+    prod_24_1,
+    prod_24_2,
+    prod_24_3,
+    prod_24_4,
+    prod_25,
+    prod_26,
+    prod_27_1,
+    prod_27_2,
+    prod_27_3,
+    prod_28_1,
+    prod_28_2,
+    prod_28_3,
+    prod_29,
+    prod_30,
+    prod_31,
+    prod_32,
+    prod_33,
+    prod_34,
+    prod_35,
+    prod_36,
+    prod_37,
+    prod_38,
+    prod_39,
+    prod_40,
+    prod_41,
+    prod_42,
+    prod_43,
+    prod_44_1,
+    prod_44_2,
+    prod_45,
+    prod_46,
+    prod_47,
+    prod_48_1,
+    prod_48_2,
+    prod_48_3,
+    prod_49_1,
+    prod_49_2,
+    prod_49_3,
+    prod_50_1,
+    prod_50_2,
+    prod_51,
+    prod_52_1,
+    prod_52_2,
+    prod_53_1,
+    prod_53_2,
+    prod_54,
+    prod_55,
+    prod_56,
+    prod_57,
+    prod_58_1,
+    prod_58_2,
+    prod_59,
+    prod_60_1,
+    prod_60_2,
+    prod_60_3,
+    prod_61_1,
+    prod_61_2,
+    prod_61_3,
+
     prod_1_thumb,
     prod_2_thumb,
     prod_3_thumb,

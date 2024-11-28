@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind'
-import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 import styles from './Sidebar.module.scss'
 import services from '../../services'
-import { NavLink } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
@@ -12,17 +12,34 @@ const SIDEBAR_LIST = services.menuService.find((item) => item.title === 'Menu')?
 function Sidebar() {
     const { type } = useParams()
 
-    setTimeout(() => {
-        const menuItems = document.querySelectorAll('.' + cx('has-child'))
-        menuItems.forEach((li) => {
-            li.addEventListener('click', () => {
-                const child = li.querySelector('& > ul')
+    const cateActive = SIDEBAR_LIST?.find((cate) =>
+        cate?.children?.some((child) => child.path === '/collections/' + type)
+    )
+
+    useEffect(() => {
+        const handleClick = (event: Event) => {
+            const target = event.target as HTMLElement
+
+            const listItem = target.closest('.' + cx('has-child')) as HTMLElement | null
+            if (listItem) {
+                const child = listItem.querySelector('ul')
                 if (child) {
                     child.classList.add(cx('show'))
                 }
-            })
-        })
-    }, 100)
+            }
+        }
+
+        const sidebarMenu = document.querySelector('.' + cx('sidebar')) // Giới hạn phạm vi
+        if (sidebarMenu) {
+            sidebarMenu.addEventListener('click', handleClick)
+        }
+
+        return () => {
+            if (sidebarMenu) {
+                sidebarMenu.removeEventListener('click', handleClick)
+            }
+        }
+    }, [])
 
     return (
         <aside className={cx('sidebar')}>
@@ -30,33 +47,28 @@ function Sidebar() {
                 {SIDEBAR_LIST?.map((item, index) => {
                     return (
                         <li key={index} className={cx({ 'has-child': item.children })}>
-                            <NavLink
-                                className={({ isActive }) =>
-                                    cx('sidebar-item', {
-                                        active: isActive && '/collections/' + type === item.path
-                                    })
-                                }
+                            <Link
+                                className={cx('sidebar-item', {
+                                    active: '/collections/' + type === item.path || cateActive?.path === item.path
+                                })}
                                 to={item.path}
                             >
                                 {item.title}
-                            </NavLink>
+                            </Link>
 
                             {item.children && (
                                 <ul className={cx('sidebar-child')}>
                                     {item.children.map((itemChild, index) => {
                                         return (
                                             <li key={index}>
-                                                <NavLink
-                                                    className={({ isActive }) =>
-                                                        cx('sidebar-child-item', {
-                                                            active:
-                                                                isActive && '/collections/' + type === itemChild.path
-                                                        })
-                                                    }
+                                                <Link
+                                                    className={cx('sidebar-child-item', {
+                                                        active: '/collections/' + type === itemChild.path
+                                                    })}
                                                     to={itemChild.path}
                                                 >
                                                     {itemChild.title}
-                                                </NavLink>
+                                                </Link>
                                             </li>
                                         )
                                     })}
