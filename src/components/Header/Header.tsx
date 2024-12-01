@@ -36,8 +36,7 @@ function Header() {
     const isTablet = useWindowSize()
     const [showMenu, setShowMenu] = useState(false)
     const [menuChange, setMenuChange] = useState(false)
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [isAccount, setIsAccount] = useState(false) //pending
+    const [isAccount] = useState(false) //setIsAccount pending
     const navRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
