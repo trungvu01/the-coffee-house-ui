@@ -1,5 +1,21 @@
+import { useParams } from 'react-router-dom'
+
+import Blogs from '../Blogs'
+
 function Pages() {
-    return <h1>Pages page</h1>
+    const { pageName } = useParams()
+    let Comp = Blogs
+
+    switch (pageName) {
+        case 'chuyen-ca-phe-va-tra':
+            Comp = Blogs
+            break
+
+        default:
+            break
+    }
+
+    return <Comp />
 }
 
 export default Pages

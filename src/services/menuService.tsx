@@ -1,4 +1,12 @@
-import config from '../config'
+export const blogTitles = {
+    chuyencaphe: '#chuyencaphe',
+    phacaphe: '#phacaphe',
+    phatra: '#phatra',
+    cauchuyenvetra: '#cauchuyenvetra',
+    inthemood: '#inthemood',
+    review: '#Review',
+    humanofTHC: '#HumanofTHC'
+}
 
 const menuService = [
     { title: 'Cà phê', path: '/collections/thuong-thuc-tai-nha' },
@@ -67,51 +75,51 @@ const menuService = [
     },
     {
         title: 'Chuyện nhà',
-        path: config.routes.blogs,
+        path: '/pages/chuyen-ca-phe-va-tra',
         children: [
             {
                 title: 'Coffeeholic',
-                path: config.routes.blogs + '?b=1000676335',
+                path: '/pages/chuyen-ca-phe-va-tra/coffeeholic',
                 children: [
                     {
-                        title: '#chuyencaphe',
-                        path: config.routes.blogs + '?b=1000676335&h=chuyencaphe'
+                        title: blogTitles.chuyencaphe,
+                        path: '/pages/chuyen-ca-phe-va-tra/chuyen-ca-phe'
                     },
                     {
-                        title: '#phacaphe',
-                        path: config.routes.blogs + '?b=1000676335&h=phacaphe'
+                        title: blogTitles.phacaphe,
+                        path: '/pages/chuyen-ca-phe-va-tra/pha-ca-phe'
                     }
                 ]
             },
             {
                 title: 'Teaholic',
-                path: config.routes.blogs + '?b=1000676336',
+                path: '/pages/chuyen-ca-phe-va-tra/teaholic',
                 children: [
                     {
-                        title: '#phatra',
-                        path: config.routes.blogs + '?b=1000676336&h=phatra'
+                        title: blogTitles.phatra,
+                        path: '/pages/chuyen-ca-phe-va-tra/pha-tra'
                     },
                     {
-                        title: '#cauchuyenvetra',
-                        path: config.routes.blogs + '?b=1000676336&h=cauchuyenvetra'
+                        title: blogTitles.cauchuyenvetra,
+                        path: '/pages/chuyen-ca-phe-va-tra/cau-chuyen-ve-tra'
                     }
                 ]
             },
             {
                 title: 'Blog',
-                path: config.routes.blogs + '?b=1000676337',
+                path: '/pages/chuyen-ca-phe-va-tra/blogs',
                 children: [
                     {
-                        title: '#inthemood',
-                        path: config.routes.blogs + '?b=1000676337&h=inthemood'
+                        title: blogTitles.inthemood,
+                        path: '/pages/chuyen-ca-phe-va-tra/inthemood'
                     },
                     {
-                        title: '#Review',
-                        path: config.routes.blogs + '?b=1000676337&h=Review'
+                        title: blogTitles.review,
+                        path: '/pages/chuyen-ca-phe-va-tra/review'
                     },
                     {
-                        title: '#HumanofTHC',
-                        path: config.routes.blogs + '?b=1000676337&h=HumanofTHC'
+                        title: blogTitles.humanofTHC,
+                        path: '/pages/chuyen-ca-phe-va-tra/humanofTHC'
                     }
                 ]
             }

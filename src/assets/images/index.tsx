@@ -36,6 +36,25 @@ import footer_location from './location-white.webp'
 import facebook_icon from './facebook-icon.svg'
 import ig_icon from './instagram-icon.svg'
 import dot_cafe from './dot-cafe.svg'
+import cup_cafe from './cup-icon-home.webp'
+
+import blog_1 from './blog_1.jpg'
+import blog_2 from './blog_2.jpg'
+import blog_3 from './blog_3.webp'
+import blog_4 from './blog_4.jpg'
+import blog_5 from './blog_5.jpg'
+import blog_6 from './blog_6.jpg'
+import blog_7 from './blog_7.webp'
+import blog_8 from './blog_8.jpg'
+import blog_9 from './blog_9.webp'
+import blog_10 from './blog_10.webp'
+import blog_11 from './blog_11.jpg'
+import blog_12 from './blog_12.webp'
+import blog_13 from './blog_13.webp'
+
+import blog_group_1 from './blog_group_1.webp'
+import blog_group_2 from './blog_group_2.jpg'
+import blog_group_3 from './blog_group_3.webp'
 
 import prod_1 from './prod_1.webp'
 import prod_2 from './prod_2.jpg'
@@ -223,6 +242,25 @@ const images = {
     facebook_icon,
     ig_icon,
     dot_cafe,
+    cup_cafe,
+
+    blog_1,
+    blog_2,
+    blog_3,
+    blog_4,
+    blog_5,
+    blog_6,
+    blog_7,
+    blog_8,
+    blog_9,
+    blog_10,
+    blog_11,
+    blog_12,
+    blog_13,
+
+    blog_group_1,
+    blog_group_2,
+    blog_group_3,
 
     prod_1,
     prod_2,

@@ -10,7 +10,7 @@ type buttonPropType = {
     href?: string
     to?: string
     children: React.ReactElement | string | React.ReactNode
-    onClick?: React.FC
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     className?: string | number | symbol | any
     primary?: boolean
@@ -19,7 +19,7 @@ type buttonPropType = {
 }
 
 type propsType = {
-    onClick?: React.FC
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
     to?: string
     href?: string
 }

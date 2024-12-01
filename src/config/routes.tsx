@@ -2,8 +2,9 @@ const routes = {
     home: '/',
     collections: '/collections/:type',
     products: '/products/:productName',
-    pages: '/pages/:name',
-    blogs: '/pages/chuyen-ca-phe-va-tra'
+    pages: '/pages/:pageName',
+    blogs: '/pages/chuyen-ca-phe-va-tra/:tabName',
+    login: '/login'
 }
 
 export default routes

@@ -2,13 +2,16 @@ import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, useEffect, useRef } from 'react'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css' // optional
 
 import images from '../../assets/images'
 import styles from './Header.module.scss'
 import config from '../../config'
 import services from '../../services'
 import Menu from './Menu'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCartShopping, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
+import Button from '../Button'
 
 const cx = classNames.bind(styles)
 
@@ -35,6 +38,7 @@ function Header() {
     const isTablet = useWindowSize()
     const [showMenu, setShowMenu] = useState(false)
     const [menuChange, setMenuChange] = useState(false)
+    const [isAccount, setIsAccount] = useState(false)
     const navRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
@@ -88,6 +92,21 @@ function Header() {
                         <nav ref={navRef} className={cx('navigation')}>
                             <Menu onHideMenu={handleHideMenu} data={services.menuService} />
                         </nav>
+
+                        {/* account */}
+
+                        {isAccount ? (
+                            <div className={cx('user-action')}>
+                                <button className={cx('cart', 'user-action-btn')}>
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                </button>
+                                <span className={cx('separate')}></span>
+                            </div>
+                        ) : (
+                            <Link to='/login' className={cx('login', 'user-action-btn')}>
+                                Login
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>

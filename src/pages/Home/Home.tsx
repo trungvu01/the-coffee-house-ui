@@ -27,6 +27,8 @@ const STORE_2 = {
 
 const PRODUCTS_HOME = services.productsService.filter((item) => item.inHome)
 
+const BLOG_HOME = services.menuService.find((item) => item.title === 'Chuyện nhà')
+
 const settings = {
     dots: true,
     arrows: false,
@@ -102,7 +104,11 @@ function Home() {
                                             Nơi cuộc hẹn tròn đầy với Cà phê đặc sản, Món ăn đa bản sắc và Không gian
                                             cảm hứng.
                                         </p>
-                                        <Button primary className={cx('store_home-btn')}>
+                                        <Button
+                                            to='/pages/chuyen-ca-phe-va-tra/signature-the-coffee-house-da-quay-tro-lai'
+                                            primary
+                                            className={cx('store_home-btn')}
+                                        >
                                             Tìm hiểu thêm
                                         </Button>
                                     </div>
@@ -127,7 +133,11 @@ function Home() {
                                             Nhà mới toạ lạc tại The Grace Tower thuộc tuyến đường nhộn nhịp và sầm uất
                                             tại Quận 7. Ghé Nhà cà phê nha!
                                         </p>
-                                        <Button primary className={cx('store_home-btn')}>
+                                        <Button
+                                            to='/pages/chuyen-ca-phe-va-tra/signature-the-coffee-house-da-quay-tro-lai'
+                                            primary
+                                            className={cx('store_home-btn')}
+                                        >
                                             Tìm hiểu thêm
                                         </Button>
                                     </div>
@@ -143,7 +153,51 @@ function Home() {
             </section>
 
             {/* Blog Home */}
-            <section className={cx('blog')}></section>
+            <section className={cx('blog')}>
+                <div className='container'>
+                    <header className={cx('blog-header')}>
+                        <img src={images.cup_cafe} />
+                        <h2>Chuyện Nhà</h2>
+                    </header>
+
+                    {BLOG_HOME?.children?.map((item, index) => {
+                        return (
+                            <div key={index} className={cx('blog-cate')}>
+                                <h3 className={cx('blog-cate-title')}>
+                                    <Link to={item.path}>{item.title}</Link>
+                                </h3>
+                                <div className='row'>
+                                    {services.blogsService
+                                        .filter((blog) => blog.cate === item.title)
+                                        .slice(0, 3)
+                                        .map((blog, index) => {
+                                            return (
+                                                <div className='col-lg-4 col-sm-6 col-12' key={index}>
+                                                    <article>
+                                                        <Link className={cx('blog-link')} to={blog.path}>
+                                                            <img
+                                                                className={cx('blog-img')}
+                                                                src={blog.img}
+                                                                alt={blog.title}
+                                                            />
+                                                        </Link>
+                                                        <div className={cx('blog-info')}>
+                                                            <span className={cx('blog-published')}>{blog.dated}</span>
+                                                            <Link to={blog.path}>
+                                                                <h4 className={cx('blog-title')}>{blog.title}</h4>
+                                                            </Link>
+                                                            <p className={cx('blog-desc')}>{blog.desc}</p>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            )
+                                        })}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
         </>
     )
 }

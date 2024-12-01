@@ -175,13 +175,116 @@
     object-position: center;
 }
 
-button.store_home-btn {
-    margin-top: 32px;
-    border-color: #c8070f;
-    background-color: #c8070f;
+.store_home-btn {
+    margin-top: 32px !important;
+    border-color: #c8070f !important;
+    background-color: #c8070f !important;
 
     &:hover {
-        border-color: #9b0106;
-        background-color: #9b0106;
+        border-color: #9b0106 !important;
+        background-color: #9b0106 !important;
+    }
+}
+// blog
+.blog {
+    background-color: #fff7e6;
+    padding: 40px 0 120px;
+}
+
+.blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+
+    img {
+        max-width: 16px;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+}
+
+.blog-cate {
+    &-title a {
+        color: #191919;
+        font-size: 2.4rem;
+        font-weight: 600;
+        margin: 24px 0;
+        padding: 4px 0 4px 12px;
+        border-left: 4px solid #e57905;
+        transition: color 0.3s linear;
+
+        &:hover {
+            color: #e57905;
+        }
+    }
+}
+.blog-link {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    transition: scale 0.2s ease-in-out;
+
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.blog-info {
+    padding-top: 16px;
+
+    a {
+        display: block;
+    }
+}
+
+.blog-published {
+    color: #00000099;
+    font-size: 1.5rem;
+}
+
+.blog-title {
+    margin: 8px 0;
+    color: #191919;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    transition: color 0.2s linear;
+
+    &:hover {
+        color: #e57905;
+    }
+}
+
+.blog-desc {
+    color: #191919;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+
+    @media (max-width: 991.98px) {
+        -webkit-line-clamp: 3;
+    }
+
+    @media (max-width: 575.98px) {
+        -webkit-line-clamp: 2;
     }
 }

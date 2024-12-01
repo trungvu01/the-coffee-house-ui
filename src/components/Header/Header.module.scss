@@ -77,6 +77,7 @@
     height: var(--header-bottom-height);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     column-gap: 20px;
 
     @media (max-width: 991.98px) {
@@ -95,6 +96,10 @@
     cursor: pointer;
     transition: color 0.2s linear;
 
+    @media (max-width: 575.98px) {
+        left: 0;
+    }
+
     &:hover {
         color: #ea8025;
     }
@@ -107,7 +112,6 @@
 }
 
 .navigation {
-    flex: 1;
     transition: transform 0.3s ease-in-out;
 
     @media (max-width: 991.98px) {
@@ -204,7 +208,8 @@
     font-weight: 600;
 
     @media (max-width: 1199.98px) {
-        padding: 12px;
+        padding: 8px;
+        font-size: 1.3rem;
     }
 
     @media (max-width: 991.98px) {
@@ -379,4 +384,48 @@
     to {
         max-height: 1000px;
     }
+}
+
+// account
+.user-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-action-btn {
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: transparent;
+    padding: 10px 8px;
+    transition: color 0.3s linear;
+
+    &:hover {
+        color: #ea8025;
+    }
+
+    &.login {
+        font-size: 1.4rem;
+
+        @media (max-width: 1199.98px) {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 991.98px) {
+            position: absolute;
+            right: 20px;
+        }
+
+        @media (max-width: 575.98px) {
+            right: 0;
+        }
+    }
+}
+
+.separate {
+    height: 20px;
+    width: 1px;
+    background-color: #aeaeae;
+    margin: 0 6px;
 }
