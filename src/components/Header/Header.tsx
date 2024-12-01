@@ -2,7 +2,6 @@ import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState, useEffect, useRef } from 'react'
-import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css' // optional
 
 import images from '../../assets/images'
@@ -10,8 +9,7 @@ import styles from './Header.module.scss'
 import config from '../../config'
 import services from '../../services'
 import Menu from './Menu'
-import { faBars, faCartShopping, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
-import Button from '../Button'
+import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const cx = classNames.bind(styles)
 
@@ -38,7 +36,8 @@ function Header() {
     const isTablet = useWindowSize()
     const [showMenu, setShowMenu] = useState(false)
     const [menuChange, setMenuChange] = useState(false)
-    const [isAccount, setIsAccount] = useState(false)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [isAccount, setIsAccount] = useState(false) //pending
     const navRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
