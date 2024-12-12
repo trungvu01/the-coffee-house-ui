@@ -7,7 +7,7 @@ function Products() {
 
     const productInfo = services.productsService.find((item) => item.path === `/products/${productName}`)
 
-    return <ProductDetail product={productInfo} />
+    return productInfo && <ProductDetail product={productInfo} />
 }
 
 export default Products
