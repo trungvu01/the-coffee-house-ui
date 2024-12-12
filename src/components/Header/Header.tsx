@@ -1,15 +1,19 @@
 import classNames from 'classnames/bind'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState, useEffect, useRef } from 'react'
-import 'tippy.js/dist/tippy.css' // optional
+import { useState, useEffect, useRef, useContext } from 'react'
+import HeadlessTippy from '@tippyjs/react/headless'
+import 'tippy.js/dist/tippy.css'
 
 import images from '../../assets/images'
 import styles from './Header.module.scss'
 import config from '../../config'
 import services from '../../services'
 import Menu from './Menu'
-import { faBars, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { LoginContext } from '../../contexts'
+import { Button, Cart, PopperWrapper } from '../../components'
+import { ToastContext } from '../../contexts'
 
 const cx = classNames.bind(styles)
 
@@ -36,8 +40,16 @@ function Header() {
     const isTablet = useWindowSize()
     const [showMenu, setShowMenu] = useState(false)
     const [menuChange, setMenuChange] = useState(false)
-    const [isAccount] = useState(false) //setIsAccount pending
     const navRef = useRef<HTMLElement>(null)
+
+    const [isOpenConfirmPopup, setIsOpenConfirmPopup] = useState(false)
+    const [visible, setVisible] = useState(false)
+
+    const loginContext = useContext(LoginContext)
+    const addToast = useContext(ToastContext)
+    const user = loginContext?.getUser()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         setMenuChange(isTablet)
@@ -54,6 +66,22 @@ function Header() {
         if (navRef.current) {
             navRef.current.classList.remove(cx('show'))
             setShowMenu(false)
+        }
+    }
+
+    // handle logout
+    const handleOpenPopup = () => {
+        setIsOpenConfirmPopup(true)
+        setVisible(false)
+    }
+    const handleClosePopup = () => setIsOpenConfirmPopup(false)
+
+    const handleLogout = () => {
+        handleClosePopup()
+        loginContext?.logout()
+        navigate(config.routes.login)
+        if (addToast) {
+            addToast('success', 'Đăng xuất thành công.', 3010)
         }
     }
 
@@ -92,16 +120,82 @@ function Header() {
                         </nav>
 
                         {/* account */}
-
-                        {isAccount ? (
+                        {loginContext?.isLoggedIn ? (
                             <div className={cx('user-action')}>
-                                <button className={cx('cart', 'user-action-btn')}>
-                                    <FontAwesomeIcon icon={faCartShopping} />
-                                </button>
+                                <Cart />
                                 <span className={cx('separate')}></span>
+
+                                <HeadlessTippy
+                                    visible={visible}
+                                    onClickOutside={() => setVisible(false)}
+                                    interactive
+                                    placement='bottom-end'
+                                    offset={[10, 10]}
+                                    render={(attrs) => (
+                                        <div tabIndex={parseInt('-1')} {...attrs}>
+                                            <PopperWrapper>
+                                                <ul className={cx('user-avt-action')}>
+                                                    <li>
+                                                        <Link to='' onClick={() => setVisible(false)}>
+                                                            Thông Tin Cá Nhân
+                                                        </Link>
+                                                    </li>
+                                                    {user && user?.cart.length > 0 && (
+                                                        <li>
+                                                            <Link
+                                                                to={config.routes.cartDetail}
+                                                                onClick={() => setVisible(false)}
+                                                            >
+                                                                Tới Giỏ Hàng
+                                                            </Link>
+                                                        </li>
+                                                    )}
+                                                    <li>
+                                                        <Button
+                                                            onClick={handleOpenPopup}
+                                                            className={cx('logout-action')}
+                                                        >
+                                                            Logout
+                                                        </Button>
+                                                    </li>
+                                                </ul>
+                                            </PopperWrapper>
+                                        </div>
+                                    )}
+                                >
+                                    <div onClick={() => setVisible((prev) => !prev)}>
+                                        <img
+                                            className={cx('avatar-user')}
+                                            src={user?.info?.avatar}
+                                            alt={user?.info.userName}
+                                        />
+                                    </div>
+                                </HeadlessTippy>
+
+                                {isOpenConfirmPopup && (
+                                    <div className={cx('overlay-user-action')} onClick={handleClosePopup}>
+                                        <div className={cx('popup')} onClick={(e) => e.stopPropagation()}>
+                                            <header className={cx('popup-header')}>
+                                                <img src={images.logo} />
+                                                <FontAwesomeIcon
+                                                    className={cx('icon-close')}
+                                                    icon={faXmark}
+                                                    onClick={handleClosePopup}
+                                                />
+                                            </header>
+                                            <p className={cx('message')}>Bạn Muốn Đăng Xuất?</p>
+                                            <div className={cx('actions')}>
+                                                <Button primary onClick={handleLogout}>
+                                                    Xác Nhận
+                                                </Button>
+                                                <Button onClick={handleClosePopup}>Hủy</Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         ) : (
-                            <Link to='/login' className={cx('login', 'user-action-btn')}>
+                            <Link to='/login' className={cx('login-btn')}>
                                 Login
                             </Link>
                         )}

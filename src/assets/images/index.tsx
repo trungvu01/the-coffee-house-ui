@@ -56,6 +56,11 @@ import blog_group_1 from './blog_group_1.webp'
 import blog_group_2 from './blog_group_2.jpg'
 import blog_group_3 from './blog_group_3.webp'
 
+import login_img from './login-img.webp'
+
+import avt_user_1 from './avatar-user-1.jpg'
+import avt_user_2 from './avatar-user-2.jpg'
+
 import prod_1 from './prod_1.webp'
 import prod_2 from './prod_2.jpg'
 import prod_3 from './prod_3.webp'
@@ -261,6 +266,11 @@ const images = {
     blog_group_1,
     blog_group_2,
     blog_group_3,
+
+    login_img,
+
+    avt_user_1,
+    avt_user_2,
 
     prod_1,
     prod_2,

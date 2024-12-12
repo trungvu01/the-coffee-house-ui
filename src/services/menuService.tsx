@@ -125,9 +125,9 @@ const menuService = [
             }
         ]
     },
-    { title: 'Cảm hứng CloudFee', path: '/cloudfee-the-he-ca-phe-moi' },
-    { title: 'Cửa hàng', path: '/danh-sach-cua-hang' },
-    { title: 'Tuyển dụng', path: '/tuyen-dung' }
+    { title: 'Cảm hứng CloudFee', path: '/' },
+    { title: 'Cửa hàng', path: '/' },
+    { title: 'Tuyển dụng', path: '/' }
 ]
 
 export default menuService

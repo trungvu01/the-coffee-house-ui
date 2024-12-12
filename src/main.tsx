@@ -3,11 +3,16 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
 import { GlobalStyles } from './components'
+import { LoginProvider, ToastProvider } from './contexts'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <GlobalStyles>
-            <App />
-        </GlobalStyles>
+        <ToastProvider>
+            <LoginProvider>
+                <GlobalStyles>
+                    <App />
+                </GlobalStyles>
+            </LoginProvider>
+        </ToastProvider>
     </StrictMode>
 )
