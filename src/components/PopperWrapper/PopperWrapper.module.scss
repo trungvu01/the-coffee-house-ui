@@ -1,6 +1,6 @@
 .wrapper {
     max-width: 400px;
-    max-height: 400px;
+    max-height: min(400px, 64vh);
     overflow-y: scroll;
     padding: 10px;
     border-radius: 10px;
