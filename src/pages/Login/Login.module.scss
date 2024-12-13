@@ -3,7 +3,7 @@
     position: relative;
     margin: 50px auto;
     width: 768px;
-    max-width: 100%;
+    max-width: 90%;
     height: 530px;
     display: flex;
     align-items: center;
@@ -39,12 +39,24 @@
     .form-wrapper {
         animation: showFromLeft 0.6s ease-in-out;
         transform: translateX(100%);
+
+        @media (max-width: 767.98px) {
+            transform: translateX(54%);
+        }
+
+        @media (max-width: 575.98px) {
+            transform: translateX(25.5%);
+        }
     }
 
     .switch-block {
         left: 0;
         transform: translateX(0);
         border-radius: 30px 105px 105px 30px;
+
+        @media (max-width: 575.98px) {
+            border-radius: 30px 12px 12px 30px;
+        }
     }
 }
 
@@ -58,15 +70,39 @@
     transition: all 0.6s ease-in-out;
     animation: showFromRight 0.6s ease-in-out;
 
+    @media (max-width: 767.98px) {
+        max-width: 65%;
+        width: 65%;
+        padding: 22px;
+    }
+
+    @media (max-width: 575.98px) {
+        max-width: 80%;
+        width: 80%;
+        padding: 12px;
+    }
+
     > h2 {
         font-size: 2.6rem;
         font-weight: 700;
         color: #000;
+
+        @media (max-width: 767.98px) {
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 575.98px) {
+            font-size: 2.3rem;
+        }
     }
 
     > span {
         color: #333;
         font-size: 1.3rem;
+
+        @media (max-width: 575.98px) {
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -137,10 +173,18 @@
     &:hover {
         color: #ea8025;
     }
+
+    @media (max-width: 767.98px) {
+        font-size: 1.35rem;
+    }
 }
 
 .submit-btn {
     margin-top: 28px;
+
+    @media (max-width: 575.98px) {
+        font-size: 1.5rem;
+    }
 }
 
 // switch block
@@ -162,16 +206,40 @@
     text-align: center;
     transition: all 0.6s ease-in-out;
 
+    @media (max-width: 767.98px) {
+        width: 35%;
+        padding: 12px;
+    }
+
+    @media (max-width: 575.98px) {
+        width: 20%;
+        padding: 6px;
+        border-radius: 12px 30px 30px 12px;
+    }
+
     h2 {
         color: #fff;
         font-size: 2.2rem;
+        line-height: 1.2;
         font-weight: 700;
+
+        @media (max-width: 767.98px) {
+            font-size: 2.2rem;
+        }
+
+        @media (max-width: 575.98px) {
+            font-size: 2rem;
+        }
     }
 
     img {
         margin-top: 16px;
         width: 100%;
         height: auto;
+
+        @media (max-width: 575.98px) {
+            width: 108%;
+        }
     }
 
     p {
@@ -179,6 +247,14 @@
         font-size: 1.4rem;
         line-height: 1.4;
         margin: 20px 0;
+
+        @media (max-width: 767.98px) {
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 575.98px) {
+            font-size: 1.15rem;
+        }
     }
 
     .switch-form-btn {
@@ -191,6 +267,22 @@
         &:hover {
             background-color: #fff;
             color: #ea8025;
+        }
+
+        @media (max-width: 767.98px) {
+            height: 32px;
+            border-radius: 999px;
+            font-size: 1.4rem;
+            padding: 0 22px;
+        }
+
+        @media (max-width: 575.98px) {
+            max-width: 100%;
+            height: fit-content;
+            line-height: 20px;
+            font-size: 1rem;
+            padding: 0 4px;
+            border-radius: 4px;
         }
     }
 }
