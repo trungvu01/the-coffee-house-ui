@@ -52,6 +52,19 @@
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0 0 15px 0 #d8d8d8;
+
+    .empty-cart-desc {
+        padding: 20px;
+
+        a {
+            color: #ea8025;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .card-item {

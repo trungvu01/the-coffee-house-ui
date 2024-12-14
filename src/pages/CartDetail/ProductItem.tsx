@@ -48,7 +48,7 @@ const ProductItem = ({ baseProduct, productInCart, index, isCheckout }: propsTyp
         baseProduct.size?.find((size) => size.name === productInCart.size)?.moreFee
     )
     const [selectedTopping, setSelectedTopping] = useState(
-        baseProduct.topping?.find((topping) => topping.name === productInCart.topping)?.moreFee
+        baseProduct.topping?.find((topping) => topping.name === productInCart.topping)
     )
     const [quantity, setQuantity] = useState(productInCart.quantity)
 
@@ -65,11 +65,10 @@ const ProductItem = ({ baseProduct, productInCart, index, isCheckout }: propsTyp
     }
 
     const handleChangeTopping = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedTopping(parseInt(e.target.value))
+        const newTopping = baseProduct?.topping?.find((topping) => topping.name === e.target.value.toString())
+        setSelectedTopping(newTopping)
         if (user) {
-            user.cart[index].topping = baseProduct.topping?.find(
-                (topping) => topping.moreFee === parseInt(e.target.value)
-            )?.name
+            user.cart[index].topping = newTopping?.name
             loginContext?.handleCartData(user.cart)
         }
     }
@@ -118,17 +117,17 @@ const ProductItem = ({ baseProduct, productInCart, index, isCheckout }: propsTyp
     }
 
     const handleDeleteProduct = () => {
-        // if (user) {
-        //     user.cart.splice(index, 1)
-        //     loginContext?.handleCartData(user.cart)
-        // }
+        if (user) {
+            user.cart.splice(index, 1)
+            loginContext?.handleCartData(user.cart)
+        }
         if (addToast) {
-            addToast('warning', 'Chức năng này hiện đang khắc phục lỗi...', 3010)
+            addToast('success', 'Đã xóa sản phẩm.', 3010)
         }
     }
 
     const calculateTotalPrice = () => {
-        const total = (baseProduct.price + (selectedSize || 0) + (selectedTopping || 0)) * quantity
+        const total = (baseProduct.price + (selectedSize || 0) + (selectedTopping?.moreFee || 0)) * quantity
         if (user) {
             user.cart[index].totalPrice = total
             loginContext?.handleCartData(user.cart)
@@ -181,7 +180,7 @@ const ProductItem = ({ baseProduct, productInCart, index, isCheckout }: propsTyp
                                         {baseProduct.topping.length > 1 ? (
                                             <select
                                                 className={cx('options')}
-                                                value={selectedTopping}
+                                                value={selectedTopping?.name}
                                                 onChange={handleChangeTopping}
                                             >
                                                 {baseProduct.topping.map((topping, index) => {
@@ -189,7 +188,7 @@ const ProductItem = ({ baseProduct, productInCart, index, isCheckout }: propsTyp
                                                         <option
                                                             key={index}
                                                             className={cx('option-item')}
-                                                            value={topping.moreFee}
+                                                            value={topping.name}
                                                         >
                                                             {topping.name}:{' '}
                                                             {topping.moreFee === 0 ? '0đ' : `${topping.moreFee}.000đ`}

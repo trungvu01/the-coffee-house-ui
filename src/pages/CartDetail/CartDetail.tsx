@@ -44,10 +44,14 @@ const CartDetail = () => {
     useEffect(() => {
         const total = user?.cart?.reduce((acc, next) => acc + next.totalPrice, 0)
         setTotalPriceCart(total || 0)
-    }, [user, loginContext, location])
+    }, [user, location, loginContext])
 
     const goCheckout = () => {
-        setCheckout(true)
+        if (user?.cart.length === 0) {
+            if (addToast) {
+                addToast('warning', 'Không có sản phẩm nào trong giỏ hàng.', 3010)
+            }
+        } else setCheckout(true)
     }
 
     const handleCheckout = () => {
@@ -79,23 +83,30 @@ const CartDetail = () => {
                 <div className='row'>
                     <div className='col-lg-8 col-12'>
                         <ul className={cx('product-list')}>
-                            {user?.cart?.map((item, index) => {
-                                const filteredProduct = services.productsService.find(
-                                    (product) => product.title === item.name
-                                )
-
-                                if (filteredProduct) {
-                                    return (
-                                        <ProductItem
-                                            key={index}
-                                            baseProduct={filteredProduct}
-                                            productInCart={item}
-                                            index={index}
-                                            isCheckout={checkout}
-                                        />
+                            {user && user.cart.length > 0 ? (
+                                user?.cart?.map((item, index) => {
+                                    const filteredProduct = services.productsService.find(
+                                        (product) => product.title === item.name
                                     )
-                                }
-                            })}
+
+                                    if (filteredProduct) {
+                                        return (
+                                            <ProductItem
+                                                key={index}
+                                                baseProduct={filteredProduct}
+                                                productInCart={item}
+                                                index={index}
+                                                isCheckout={checkout}
+                                            />
+                                        )
+                                    }
+                                })
+                            ) : (
+                                <p className={cx('empty-cart-desc')}>
+                                    Bạn chưa có sản phẩm nào. Khám phá{' '}
+                                    <Link to={config.routes.collections + 'all'}>MENU</Link> ngay!!!
+                                </p>
+                            )}
                         </ul>
                     </div>
                     <div className='col-lg-4 col-12'>

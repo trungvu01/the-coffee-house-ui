@@ -40,6 +40,10 @@ const Cart = () => {
         setVisible(false)
     }, [location])
 
+    const handleToggle = () => {
+        setVisible((prev) => !prev)
+    }
+
     return (
         <div>
             <HeadlessTippy
@@ -98,7 +102,7 @@ const Cart = () => {
                     </div>
                 )}
             >
-                <button onClick={() => setVisible((prev) => !prev)} className={cx('cart')}>
+                <button onClick={handleToggle} className={cx('cart')}>
                     <FontAwesomeIcon icon={faCartShopping} />
                     <span className={cx('quantity')}>{quantity && quantity > 9 ? '9+' : quantity}</span>
                 </button>
