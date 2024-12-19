@@ -50,7 +50,7 @@ function Home() {
             <section className={cx('highlight')}>
                 <div className='container'>
                     <div className='row'>
-                        <Link to='/trai-cay-xay-0-c' className='col-lg-6 col-12'>
+                        <Link to='/collections/trai-cay-xay-0-c' className='col-lg-6 col-12'>
                             <img className={cx('banner-HL')} src={images.bannerHL} />
                         </Link>
                         {PRODUCTS_HOME.map((item, index) => {

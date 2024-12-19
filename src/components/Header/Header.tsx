@@ -136,7 +136,10 @@ function Header() {
                                             <PopperWrapper>
                                                 <ul className={cx('user-avt-action')}>
                                                     <li>
-                                                        <Link to='' onClick={() => setVisible(false)}>
+                                                        <Link
+                                                            to={'/profile/' + user?.info.nickName}
+                                                            onClick={() => setVisible(false)}
+                                                        >
                                                             Thông Tin Cá Nhân
                                                         </Link>
                                                     </li>
@@ -167,7 +170,7 @@ function Header() {
                                         <img
                                             className={cx('avatar-user')}
                                             src={user?.info?.avatar}
-                                            alt={user?.info.userName}
+                                            alt={user?.info.firstName + ' ' + user?.info.lastName}
                                         />
                                     </div>
                                 </HeadlessTippy>

@@ -5,7 +5,8 @@ const routes = {
     pages: '/pages/:pageName',
     blogs: '/pages/chuyen-ca-phe-va-tra/:tabName',
     login: '/login',
-    cartDetail: '/cart-detail'
+    cartDetail: '/cart-detail',
+    profile: '/profile/:nickName'
 }
 
 export default routes

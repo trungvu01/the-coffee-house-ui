@@ -9,9 +9,13 @@ type userType = {
     userAccountId: string
     userCartId: string
     avatar: string
-    userName: string
+    nickName: string
+    firstName: string
+    lastName: string
     address: string
     phone: string
+    birthday: string
+    sex: boolean
 }
 type cartType = {
     name: string
@@ -31,6 +35,7 @@ type loginType = {
     login: (userData: userType, userCart: cartType[]) => void
     logout: () => void
     handleCartData: (newCart: cartType[]) => void
+    handleSaveData: (newInfo: userType) => void
     getUser: () => { info: userType; cart: cartType[] }
 }
 
@@ -62,6 +67,14 @@ const LoginProvider = ({ children }: propsType) => {
         localStorage.setItem('user', JSON.stringify(user))
     }
 
+    const handleSaveData = (newInfo: userType) => {
+        const user: dataType = {
+            info: newInfo,
+            cart: JSON.parse(localStorage.getItem('user') || 'false').cart
+        }
+        localStorage.setItem('user', JSON.stringify(user))
+    }
+
     const getUser = () => {
         return JSON.parse(localStorage.getItem('user') || 'false')
     }
@@ -71,6 +84,7 @@ const LoginProvider = ({ children }: propsType) => {
         login,
         logout,
         handleCartData,
+        handleSaveData,
         getUser
     }
 
