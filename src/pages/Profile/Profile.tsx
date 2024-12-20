@@ -6,15 +6,20 @@ import services from '../../services'
 import { Button } from '../../components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileImage, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { LoginContext, ToastContext } from '../../contexts'
+import { ConfirmContext, LoginContext, ToastContext } from '../../contexts'
 import images from '../../assets/images'
+import { useNavigate } from 'react-router-dom'
+import config from '../../config'
 
 const cx = classNames.bind(styles)
 
 const Profile = () => {
     const loginContext = useContext(LoginContext)
     const addToast = useContext(ToastContext)
+    const confirmContext = useContext(ConfirmContext)
     const user = loginContext?.getUser()
+
+    const navigate = useNavigate()
 
     const [firstName, setFirstName] = useState(user?.info?.firstName)
     const [lastName, setLastName] = useState(user?.info?.lastName)
@@ -150,6 +155,20 @@ const Profile = () => {
         setShowPopup(false)
     }
 
+    const handleLogout = () => {
+        const options = {
+            message: 'Bạn Muốn Đăng Xuất?',
+            onConfirm: () => {
+                loginContext?.logout()
+                navigate(config.routes.login)
+                if (addToast) {
+                    addToast('success', 'Đăng xuất thành công.', 3010)
+                }
+            }
+        }
+        confirmContext?.handleShow(options)
+    }
+
     return (
         <div className={cx('profile-body')}>
             <div className='container'>
@@ -212,7 +231,9 @@ const Profile = () => {
                                     )
                                 })}
                             </ul>
-                            <Button className={cx('logout-btn')}>Đăng Xuất</Button>
+                            <Button className={cx('logout-btn')} onClick={handleLogout}>
+                                Đăng Xuất
+                            </Button>
                         </aside>
                     </div>
                     <div className='col-12 col-md-8'>

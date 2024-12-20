@@ -188,10 +188,10 @@ function Header() {
                                             </header>
                                             <p className={cx('message')}>Bạn Muốn Đăng Xuất?</p>
                                             <div className={cx('actions')}>
+                                                <Button onClick={handleClosePopup}>Hủy</Button>
                                                 <Button primary onClick={handleLogout}>
                                                     Xác Nhận
                                                 </Button>
-                                                <Button onClick={handleClosePopup}>Hủy</Button>
                                             </div>
                                         </div>
                                     </div>

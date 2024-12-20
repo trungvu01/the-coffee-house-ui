@@ -3,15 +3,17 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
 import { GlobalStyles } from './components'
-import { LoginProvider, ToastProvider } from './contexts'
+import { LoginProvider, ToastProvider, ConfirmProvider } from './contexts'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ToastProvider>
             <LoginProvider>
-                <GlobalStyles>
-                    <App />
-                </GlobalStyles>
+                <ConfirmProvider>
+                    <GlobalStyles>
+                        <App />
+                    </GlobalStyles>
+                </ConfirmProvider>
             </LoginProvider>
         </ToastProvider>
     </StrictMode>
